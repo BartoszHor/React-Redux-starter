@@ -2,18 +2,18 @@
 
 .component {
   position: relative;
-  min-height: ($base-size * 15);
+  min-height: ($base-size * 30);
   background: $color-dark;
   margin: 0 0 ($base-size * 3) 0;
   overflow: hidden;
-  border-radius: $radius;
+  border-radius: 40%;
 }
 
 .title {
   position: absolute;
   z-index: 2;
   left: 50%;
-  top: 50%;
+  top: 20%;
   font-size: ($base-size * 2.5);
   text-transform: uppercase;
   color: $color-light;
