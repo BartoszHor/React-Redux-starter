@@ -11,18 +11,18 @@ export const settings = {
 };
 
 export const pageContents = {
-  title: 'My first React app',
-  subtitle: 'A simple to-do app, with lists, columns and cards',
+  title: 'TO-DO',
+  subtitle: '',
 };
 
 export const listData = {
   title: 'Things to do <sup>soon!</sup>',
   description: 'Interesting things I want to check out!',
-  image: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
+  link: "https://images.pexels.com/photos/3785927/pexels-photo-3785927.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   columns: [
     {
       key: 0,
-      title: 'Books',
+      title: 'Job duties',
       icon: 'book',
       cards: [
         {
@@ -37,7 +37,7 @@ export const listData = {
     },
     {
       key: 1,
-      title: 'Movies',
+      title: 'Home duties',
       icon: 'film',
       cards: [
         {
@@ -52,7 +52,7 @@ export const listData = {
     },
     {
       key: 2,
-      title: 'Games',
+      title: 'Others',
       icon: 'gamepad',
       cards: [
         {

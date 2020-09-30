@@ -2,17 +2,25 @@ import React from 'react';
 import styles from './List.scss';
 import Hero from '../Hero/Hero'
 import PropTypes from 'prop-types';
-import Column from '../Column/Column'
+import Column from '../Column/Column';
+import {settings} from '../../data/dataStore';
+import ReactHtmlParser from 'react-html-parser';
+import Creator from '../Creator/Creator';
 
 class List extends React.Component {
+	state = {
+		columns: this.props.columns || [],
+	}
+
 	static propTypes = {
 		title: PropTypes.node.isRequired,
-		children: PropTypes.node,
+		description: PropTypes.node,
 		link: PropTypes.string,
+		columns: PropTypes.array,
 	}
 
 	static defaultProps = {
-		children: <p> Those things have to be done ASAP </p>,
+		description: settings.defaultListDescription,
 	}
 
 	render() {
@@ -20,12 +28,15 @@ class List extends React.Component {
 			<section className={styles.component}>
 				<Hero titleText={this.props.title} link={this.props.link} />
 				<div className={styles.description}>
-					{this.props.children}					
+					{ReactHtmlParser(this.props.description)}					
 				</div>
 				<div className={styles.columns}>
-					<Column className={styles.columns} task='Job duties' />
-					<Column className={styles.columns} task='Home duties'  />
-					<Column className={styles.columns} task='Others'  />
+					{this.state.columns.map(({key, ...columnProps}) => (
+					  <Column key={key} {...columnProps} /> /*DO WYJAŚNIENIA*/
+					))}
+				</div>
+				<div className={styles.creator}>
+					<Creator text={settings.cardCreatorText} action={title => this.addColumn(title)}/>
 				</div>
 			</section>
 		)
