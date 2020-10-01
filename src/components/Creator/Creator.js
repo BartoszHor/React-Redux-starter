@@ -36,6 +36,7 @@ class Creator extends React.Component {
   }
 
   handleCancel = () => {
+    confirm('Not adding anything?')
     this.setState({
       value: '',
       visibleButtons: false
@@ -52,8 +53,8 @@ class Creator extends React.Component {
           onChange={this.handleChange}
         />
         <div className={styles.buttons + (this.state.visibleButtons ? ' ' + styles.buttonsShown : '')}>
-          <Button onClick={this.handleOK}>OK</Button>
-          <Button onClick={this.handleCancel} variant='danger'>cancel</Button>
+          <Button onClick={this.handleOK} variant={this.props.variant + this.props.props}>Ok</Button>
+          <Button onClick={this.handleCancel} variant='danger small' >Cancel</Button>
         </div>
       </div>
     );

@@ -38,7 +38,7 @@ addCard(title){
 			<section className={styles.component}>
 				<h3 className={styles.title}><span className={styles.icon}><Icon name={this.props.icon} /> </span>{this.props.title}</h3>
 				<div className={styles.creator}>
-					<Creator text={settings.cardCreatorText} action={title => this.addCard(title)}/>
+					<Creator text={settings.cardCreatorText} variant='danger' action={title => this.addCard(title)}/>
 				</div>
 				{this.state.cards.map(({key, ...cardsProps}) => (
 					  <Card key={key} {...cardsProps} />

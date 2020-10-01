@@ -10,6 +10,7 @@ import Creator from '../Creator/Creator';
 class List extends React.Component {
 	state = {
 		columns: this.props.columns || [],
+		button: 'small'
 	}
 
 	static propTypes = {
@@ -31,7 +32,7 @@ class List extends React.Component {
 				{
 					key: state.columns.length ? state.columns[state.columns.length-1].key + 1 : 0,
 					title,
-					icon: 'list-alt',
+	 				icon: 'list-alt',
 					cards: []
 				}
 			]
@@ -51,7 +52,7 @@ class List extends React.Component {
 					))}
 				</div>
 				<div className={styles.creator}>
-					<Creator text={settings.columnCreatorText} action={title => this.addColumn(title)}/>
+					<Creator variant={this.state.button} text={settings.columnCreatorText} action={title => this.addColumn(title)}/>
 				</div>
 			</section>
 		)
