@@ -17,36 +17,36 @@ export const pageContents = {
 
 export const listData = {
   title: 'Things to do <sup>soon!</sup>',
-  description: 'Interesting things I want to check out!',
+  description: 'Lets keep it organised!',
   link: "https://images.pexels.com/photos/3785927/pexels-photo-3785927.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   columns: [
     {
       key: 0,
       title: 'Job duties',
-      icon: 'book',
+      icon: 'building',
       cards: [
         {
           key: 0,
-          title: 'This Is Going to Hurt',
+          title: 'Arrange team meeting',
         },
         {
           key: 1,
-          title: 'Interpreter of Maladies',
+          title: 'Do sales presentation',
         },
       ],
     },
     {
       key: 1,
       title: 'Home duties',
-      icon: 'film',
+      icon: 'home',
       cards: [
         {
           key: 0,
-          title: 'Harry Potter',
+          title: 'Cook Pizza',
         },
         {
           key: 1,
-          title: 'Star Wars',
+          title: 'Buy dogs food',
         },
       ],
     },
@@ -57,11 +57,11 @@ export const listData = {
       cards: [
         {
           key: 0,
-          title: 'The Witcher',
+          title: 'Play new game',
         },
         {
           key: 1,
-          title: 'Skyrim',
+          title: 'Read book',
         },
       ],
     },
