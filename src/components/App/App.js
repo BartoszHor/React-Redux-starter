@@ -8,22 +8,25 @@ class App extends React.Component {
 
 	state = {
 		lists: [listData]
+
 	}
 
 	addList(title){
 			this.setState(state => (
 			{
-				list: [
-				...listData,
+				lists: [
+				...state.lists,
 				{
 					key: state.lists.length ? state.lists[state.lists.length-1].key + 1 : 0,
 					title,
+					link: "https://images.pexels.com/photos/3785927/pexels-photo-3785927.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 				}
 			]
 		}
 	));
 }
   render() {
+  	{console.log(this.state.lists)}
     return (
       <main className={styles.component}>
         <h1 className={styles.title}>{pageContents.title}</h1>
@@ -31,8 +34,8 @@ class App extends React.Component {
         {this.state.lists.map(({key, ...listsProps}) => (
         	<List key={key} {...listsProps} />
         	))}
-  
    		<Creator text={settings.cardCreatorText} variant='danger' action={title => this.addList(title)}/>
+  
       </main>
     )
   }
