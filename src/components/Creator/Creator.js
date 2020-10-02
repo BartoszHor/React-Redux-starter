@@ -20,7 +20,7 @@ class Creator extends React.Component {
   handleChange = event => {
     // console.log(event);
     this.setState({
-      value: event.target.value,
+      value: event.target.value.charAt(0).toUpperCase() + event.target.value.slice(1),
       visibleButtons: event.target.value.length > 0
     });
   }
