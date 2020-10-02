@@ -16,6 +16,7 @@ export const pageContents = {
 };
 
 export const listData = {
+  key: 0,
   title: 'Things to do <sup>soon!</sup>',
   description: 'Lets keep it organised!',
   link: "https://images.pexels.com/photos/3785927/pexels-photo-3785927.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
