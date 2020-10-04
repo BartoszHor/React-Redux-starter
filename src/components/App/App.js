@@ -2,43 +2,148 @@ import React from 'react';
 import styles from './App.scss';
 import List from '../List/List';
 import Creator from '../Creator/Creator';
-import {pageContents, listData, settings} from '../../data/dataStore';
+import {pageContents, listData} from '../../data/dataStore';
 
 class App extends React.Component {
 
-	state = {
-		lists: [listData]
+state = {
+  lists: [listData],
 
-	}
-
-	addList(title){
-			this.setState(state => (
-			{
-				lists: [
-				...state.lists,
-				{
-					key: state.lists.length ? state.lists[state.lists.length-1].key + 1 : 0,
-					title,
-					link: "https://images.pexels.com/photos/3785927/pexels-photo-3785927.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-				}
-			]
-		}
-	));
 }
+
+addList(title){
+  this.setState(state => (
+    {
+      lists: [
+        ...state.lists,
+        {
+          key: state.lists.length ? state.lists[state.lists.length-1].key + 1 : 0,
+          title,
+          link: 'https://images.pexels.com/photos/3785927/pexels-photo-3785927.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        },
+      ],
+    }
+  ));
+}
+render() {
+  return (
+    <main className={styles.component}>
+      <h1 className={styles.title}>{pageContents.title}</h1>
+      <h2 className={styles.subtitle}>{pageContents.subtitle}</h2>
+      {this.state.lists.map(({key, ...listsProps}) => (
+        <List key={key} {...listsProps} />
+      ))}
+   		<Creator text={'Name Your new list'} variant='danger' action={title => this.addList(title)}/>
+  
+    </main>
+  );
+}
+}
+
+export default App;
+
+
+/*
+
+TRAINING FROM ANOTHER SOURCE
+
+import React from 'react';
+import styles from './App.scss';
+import {pageContents, listData, settings} from '../../data/dataStore';
+import {createStore, combineReducers, applyMiddleware} from 'redux'
+import createLogger from 'redux-logger'
+ 
+
+const mathReducer = (state = {
+	result: 1,
+	lastValue: [],
+}, action) => {
+	switch (action.type) {
+		case "ADD":
+			state = {
+				...state,
+				result: state.result + action.payload,
+				lastValue: [...state.lastValue, action.payload]
+			}
+			break;
+
+		case "SUBSTRACT":
+			state = {
+				...state,
+				result: state.result - action.payload,
+				lastValue: [...state.lastValue, action.payload]
+			}
+			break;
+	}	
+	return state
+};
+
+const userReducer = (state = {
+	name: "Max",
+	age: 32,
+}, action) => {
+	switch (action.type) {
+		case "SET_NAME":
+			state = {
+				...state,
+				name: action.payload			
+			}
+			break;
+
+		case "SET_AGE":
+			state = {
+				...state,
+				age: action.payload
+			}
+			break;
+	}	
+	return state
+};
+
+const myLogger = (store) => (next) => (action) => {
+	console.log('Logged action', action); 
+	next(action)
+}
+
+const store = createStore(combineReducers({mathReducer, userReducer}),
+{}, 
+applyMiddleware(createLogger)	
+)
+
+store.subscribe(() => {
+	//console.log('store updated', store.getState())
+});
+
+store.dispatch({
+	type: "ADD",
+	payload: 12
+})
+
+store.dispatch({
+	type: "ADD",
+	payload: 100
+})
+
+store.dispatch({
+	type: "SET_NAME",
+	payload: "Anna"
+})
+
+store.dispatch({
+	type: "SET_AGE",
+	payload: 20
+})
+
+class App extends React.Component {
+
   render() {
-  	{console.log(this.state.lists)}
     return (
       <main className={styles.component}>
         <h1 className={styles.title}>{pageContents.title}</h1>
-        <h2 className={styles.subtitle}>{pageContents.subtitle}</h2>
-        {this.state.lists.map(({key, ...listsProps}) => (
-        	<List key={key} {...listsProps} />
-        	))}
-   		<Creator text={settings.cardCreatorText} variant='danger' action={title => this.addList(title)}/>
-  
       </main>
     )
   }
 }
 
 export default App;
+*/

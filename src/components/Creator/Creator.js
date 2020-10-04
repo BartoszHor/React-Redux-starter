@@ -8,6 +8,14 @@ class Creator extends React.Component {
     text: PropTypes.string,
   }
 
+  static get propTypes() {
+    return {
+      action: PropTypes.func,
+      variant: PropTypes.string,
+      color: PropTypes.string,
+    };
+  }
+
   static defaultProps = {
     text: 'Add new item',
   }
@@ -21,7 +29,7 @@ class Creator extends React.Component {
     // console.log(event);
     this.setState({
       value: event.target.value.charAt(0).toUpperCase() + event.target.value.slice(1),
-      visibleButtons: event.target.value.length > 0
+      visibleButtons: event.target.value.length > 0,
     });
   }
 
@@ -30,16 +38,16 @@ class Creator extends React.Component {
       this.props.action(this.state.value);
       this.setState({
         value: '',
-        visibleButtons: false
+        visibleButtons: false,
       });
     }
   }
 
   handleCancel = () => {
-    confirm('Not adding anything?')
+    confirm('Not adding anything?'),
     this.setState({
       value: '',
-      visibleButtons: false
+      visibleButtons: false,
     });
   }
 
@@ -53,7 +61,7 @@ class Creator extends React.Component {
           onChange={this.handleChange}
         />
         <div className={styles.buttons + (this.state.visibleButtons ? ' ' + styles.buttonsShown : '')}>
-          <Button onClick={this.handleOK} variant={this.props.variant + this.props.props}>Ok</Button>
+          <Button onClick={this.handleOK} variant={this.props.variant + this.props.color}>Ok</Button>
           <Button onClick={this.handleCancel} variant='danger small' >Cancel</Button>
         </div>
       </div>
