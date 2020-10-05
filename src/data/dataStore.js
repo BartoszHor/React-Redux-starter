@@ -12,7 +12,7 @@ export const settings = {
 
 export const pageContents = {
   title: 'TO-DO',
-  subtitle: 'Sooner or later',
+  subtitle: '',
 };
 
 export const listData = {
