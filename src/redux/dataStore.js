@@ -6,63 +6,66 @@ export const settings = {
     buttonCancel: 'Cancel',
     defaultText: 'Add new item',
   },
+  search: {
+    defaultText: 'Search...',
+    icon: 'search',
+  },
   defaultListDescription: '<p>I can do all the things!!!</p>',
   defaultColumnIcon: 'list-alt',
 };
 
 export const pageContents = {
-  title: 'TO-DO',
-  subtitle: 'Sooner or later',
+  title: 'My first React app',
+  subtitle: 'A simple to-do app, with lists, columns and cards',
 };
 
 export const listData = {
-  key: 0,
   title: 'Things to do <sup>soon!</sup>',
-  description: 'Lets keep it organised!',
-  link: 'https://images.pexels.com/photos/3785927/pexels-photo-3785927.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  description: 'Interesting things I want to check out!',
+  image: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
   columns: [
     {
       key: 0,
-      title: 'Job duties',
-      icon: 'building',
+      title: 'Books',
+      icon: 'book',
       cards: [
         {
           key: 0,
-          title: 'Arrange team meeting',
+          title: 'This Is Going to Hurt',
         },
         {
           key: 1,
-          title: 'Do sales presentation',
+          title: 'Interpreter of Maladies',
         },
       ],
     },
     {
       key: 1,
-      title: 'Home duties',
-      icon: 'home',
+      title: 'Movies',
+      icon: 'film',
       cards: [
         {
           key: 0,
-          title: 'Cook Pizza',
+          title: 'Harry Potter',
         },
         {
           key: 1,
-          title: 'Buy dogs food',
+          title: 'Star Wars',
         },
       ],
     },
     {
       key: 2,
-      title: 'Others',
+      title: 'Games',
       icon: 'gamepad',
       cards: [
         {
           key: 0,
-          title: 'Play new game',
+          title: 'The Witcher',
         },
         {
           key: 1,
-          title: 'Read book',
+          title: 'Skyrim',
         },
       ],
     },
@@ -74,7 +77,7 @@ const lists = [
     id: 'list-1',
     title: 'Things to do <sup>soon!</sup>',
     description: 'Interesting things I want to check out!',
-    link: 'https://images.pexels.com/photos/3785927/pexels-photo-3785927.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
   },
 ];
 

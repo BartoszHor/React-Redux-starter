@@ -1,10 +1,17 @@
 import React from 'react';
 import styles from './App.scss';
-import List from '../List/List';
+import List from '../List/listContainer';
 import Creator from '../Creator/Creator';
 import {pageContents, listData} from '../../data/dataStore';
+import PropTypes from 'prop-types';
 
 class App extends React.Component {
+
+static propTypes = {
+  title: PropTypes.node,
+  subtitle: PropTypes.node,
+  lists: PropTypes.array,
+}
 
 state = {
   lists: [listData],
@@ -26,12 +33,13 @@ addList(title){
   ));
 }
 render() {
+  const {lists} = this.props;
   return (
     <main className={styles.component}>
       <h1 className={styles.title}>{pageContents.title}</h1>
       <h2 className={styles.subtitle}>{pageContents.subtitle}</h2>
-      {this.state.lists.map(({key, ...listsProps}) => (
-        <List key={key} {...listsProps} />
+      {lists.map(listData => (
+        <List key={listData.id} {...listData} />
       ))}
    		<Creator text={'Name Your new list'} variant='danger' action={title => this.addList(title)}/>
   
