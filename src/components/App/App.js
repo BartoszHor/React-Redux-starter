@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './App.scss';
 import List from '../List/listContainer';
 import Creator from '../Creator/Creator';
-import {pageContents, listData} from '../../data/dataStore';
 import PropTypes from 'prop-types';
 
 class App extends React.Component {
@@ -13,31 +12,12 @@ static propTypes = {
   lists: PropTypes.array,
 }
 
-state = {
-  lists: [listData],
-
-}
-
-addList(title){
-  this.setState(state => (
-    {
-      lists: [
-        ...state.lists,
-        {
-          key: state.lists.length ? state.lists[state.lists.length-1].key + 1 : 0,
-          title,
-          link: 'https://images.pexels.com/photos/3785927/pexels-photo-3785927.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-        },
-      ],
-    }
-  ));
-}
 render() {
-  const {lists} = this.props;
+  const {lists, title, subtitle} = this.props;
   return (
     <main className={styles.component}>
-      <h1 className={styles.title}>{pageContents.title}</h1>
-      <h2 className={styles.subtitle}>{pageContents.subtitle}</h2>
+      <h1 className={styles.title}>{title}</h1>
+      <h2 className={styles.subtitle}>{subtitle}</h2>
       {lists.map(listData => (
         <List key={listData.id} {...listData} />
       ))}

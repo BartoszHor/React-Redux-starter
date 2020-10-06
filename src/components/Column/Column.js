@@ -10,15 +10,12 @@ class Column extends React.Component {
 static propTypes = {
   title: PropTypes.string,
   addCard: PropTypes.func,
+  cards: PropTypes.array,
+  icon: PropTypes.string,
 }
 
 static defaultProps = {
   icon: settings.defaultColumnIcon,
-}
-
-static propTypes = {
-  cards: PropTypes.array,
-  icon: PropTypes.string,
 }
 
 render() {
