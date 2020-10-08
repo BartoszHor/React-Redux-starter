@@ -6,6 +6,7 @@ import Column from '../Column/columnContainer';
 import {settings} from '../../data/dataStore';
 import ReactHtmlParser from 'react-html-parser';
 import Creator from '../Creator/Creator';
+import Search from '../Search/SearchContainer';
 
 class List extends React.Component {
 
@@ -19,6 +20,7 @@ static propTypes = {
 
 static defaultProps = {
   description: settings.defaultListDescription,
+  link: 'https://images.pexels.com/photos/3785927/pexels-photo-3785927.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 }
 
 render() {
@@ -29,7 +31,7 @@ render() {
       <div className={styles.description}>
         {ReactHtmlParser(description)}					
       </div>
-      
+      <Search />
       <div className={styles.columns}>
         {columns.map(columnData => (
           <Column key={columnData.id} {...columnData} />

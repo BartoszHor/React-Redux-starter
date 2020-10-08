@@ -10,10 +10,11 @@ static propTypes = {
   title: PropTypes.node,
   subtitle: PropTypes.node,
   lists: PropTypes.array,
+  addList: PropTypes.func,
 }
 
 render() {
-  const {lists, title, subtitle} = this.props;
+  const {lists, title, subtitle, addList} = this.props;
   return (
     <main className={styles.component}>
       <h1 className={styles.title}>{title}</h1>
@@ -21,8 +22,7 @@ render() {
       {lists.map(listData => (
         <List key={listData.id} {...listData} />
       ))}
-   		<Creator text={'Name Your new list'} variant='danger' action={title => this.addList(title)}/>
-  
+   		<Creator text={'Name Your new list'} variant='danger' action={addList}/>
     </main>
   );
 }

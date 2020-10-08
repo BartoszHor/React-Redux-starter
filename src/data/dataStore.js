@@ -1,6 +1,10 @@
 export const settings = {
   columnCreatorText: 'Add new column',
   cardCreatorText: 'Add new card',
+  search: {
+    defaultText: 'Search Cards',
+    icon: 'book',
+  },
   creator: {
     buttonOK: 'OK',
     buttonCancel: 'Cancel',
