@@ -42,7 +42,7 @@ class Search extends React.Component {
   render() {
     const {text, countVisible, countAll} = this.props;
     const {value} = this.state;
-    const {icon} = settings.search.icon;
+    const icon = settings.search.icon;
     return (
       <div className={styles.component}>
         <input
