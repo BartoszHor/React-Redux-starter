@@ -12,10 +12,11 @@ static propTypes = {
   subtitle: PropTypes.node,
   lists: PropTypes.array,
   addList: PropTypes.func,
+  moveCard: PropTypes.func,
 }
 
 render() {
-  const {lists, title, addList} = this.props;
+  const {lists, title, addList, moveCard} = this.props;
   const moveCardHandler = result => {
     if(
       result.destination
@@ -25,7 +26,7 @@ render() {
       ||
       result.destination.droppableId != result.source.droppableId
     )
-    ){
+    ){moveCard;
       console.log({
         id: result.draggableId,
         dest: {
