@@ -17,7 +17,7 @@ static propTypes = {
 
 render() {
   const {lists, title, addList, moveCard} = this.props;
-  const moveCardHandler = result => {
+  const moveCardHandler = (result) => {
     if(
       result.destination
     &&
@@ -26,8 +26,9 @@ render() {
       ||
       result.destination.droppableId != result.source.droppableId
     )
-    ){moveCard;
-      console.log({
+    ){
+
+      moveCard({
         id: result.draggableId,
         dest: {
           index: result.destination.index,
@@ -38,8 +39,10 @@ render() {
           columnId: result.source.droppableId,
         },
       });
+      console.log(result);
     }
   };
+
   return (
     <main className={styles.component}>
       <h1 className={styles.title}>{title}</h1>
@@ -53,7 +56,6 @@ render() {
   );
 }
 }
-
 export default App;
 
 
