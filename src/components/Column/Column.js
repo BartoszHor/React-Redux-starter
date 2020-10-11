@@ -37,7 +37,7 @@ render() {
           >
             {cards.map(cardData => (
               <Card key={cardData.id} {...cardData} />
-            ))}
+            )).sort((a, b) => (a.index  > b.index) ? 1 : -1)}
 
             {provided.placeholder}
           </div>

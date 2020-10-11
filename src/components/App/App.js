@@ -39,7 +39,6 @@ render() {
           columnId: result.source.droppableId,
         },
       });
-      console.log(result);
     }
   };
 
