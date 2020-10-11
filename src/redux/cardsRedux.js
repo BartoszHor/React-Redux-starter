@@ -34,14 +34,11 @@ export default function CardReducer (state = [], action = {}) {
       const {id, src, dest} = action.payload;
       const targetCard = state.filter(card => card.id == id)[0];
       const targetColumnCards = state.filter(card => card.columnId == dest.columnId).sort((a, b) => a.index - b.index);
-      //console.log(targetColumnCards)
       if (dest.columnId == src.columnId){
         targetColumnCards.splice(src.index, 1);
         targetColumnCards.splice(dest.index, 0, targetCard);
-        console.log(targetColumnCards);
         return state.map(card => {
           const targetColumnIndex = targetColumnCards.indexOf(card);
-          console.log(targetColumnIndex);
           if(targetColumnIndex > -1 && card.index != targetColumnIndex){
             return {...card, index: targetColumnIndex}; 	 
           } else {
@@ -49,7 +46,31 @@ export default function CardReducer (state = [], action = {}) {
           }
         });
       } else {
-        return state;
+        let sourceColumnCards = state.filter(card => card.columnId == src.columnId).sort((a, b) => a.index - b.index);
+
+        sourceColumnCards.splice(src.index, 1);
+        targetColumnCards.splice(dest.index, 0, targetCard);
+
+        return state.map(card => {
+          const targetColumnIndex = targetColumnCards.indexOf(card);
+
+          if(card == targetCard){
+            return {...card, index: targetColumnIndex, columnId: dest.columnId};
+          } else if(targetColumnIndex > -1 && card.index != targetColumnIndex){
+   
+            return {...card, index: targetColumnIndex};
+          } else {
+
+            const sourceColumnIndex = sourceColumnCards.indexOf(card);
+
+            if(sourceColumnIndex > -1 && card.index != sourceColumnIndex){
+              // card is in sourceColumn
+              return {...card, index: sourceColumnIndex};
+            } else {
+              return card;
+            }
+          }
+        });
       }   
     }
     default:
