@@ -2,6 +2,7 @@
 
 .component {
   padding: 0 0 $base-size 0;
+  align-items: flex-start;
 }
 
 .description:not(:empty) {
@@ -12,7 +13,7 @@
 .columns {
   display: flex;
   justify-content: space-between;
-  overflow: auto;
+  flex-wrap: wrap;
 }
 
 .creator {

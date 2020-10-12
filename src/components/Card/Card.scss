@@ -7,4 +7,16 @@
   padding: $base-size;
   margin: 0 0 $base-size 0;
   border-radius: $radius;
+  display: flex;
+}
+
+.close {
+	display: inline-block;
+	margin-left: auto;
+	font-size: 120%;
+	cursor: pointer;
+}
+
+span {
+
 }

@@ -88,7 +88,6 @@ const columns = [
     listId: 'list-1',
     title: 'Books',
     icon: 'book',
-    a: 2,
   },
   {
     id: 'column-2',
@@ -101,12 +100,6 @@ const columns = [
     listId: 'list-1',
     title: 'Games',
     icon: 'gamepad',
-  },
-  {
-    id: 'column-4',
-    listId: 'list-2',
-    title: 'Strange column',
-    icon: 'question',
   },
 ];
 

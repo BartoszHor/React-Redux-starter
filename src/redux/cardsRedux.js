@@ -10,6 +10,7 @@ const createActionName = name => `app/${reducerName}/${name}`;
 
 export const ADD_CARD = createActionName('ADD_CARD');
 export const MOVE_CARD = createActionName('MOVE_CARD');
+export const REMOVE_CARD = createActionName('REMOVE_CARD');
 
 export const createAction_moveCard = payload => ({
   payload: {...payload},
@@ -24,12 +25,28 @@ export const createActionAddCard = payload => ({
   type: ADD_CARD,
 });
 
+
+export const createActionRemoveCard = payload => ({
+  payload: { ...payload}, 
+  type: REMOVE_CARD,
+});
 //reducer
 
 export default function CardReducer (state = [], action = {}) {
   switch(action.type) {
-    case ADD_CARD:
-      return [...state, action.payload];
+    case REMOVE_CARD:
+      return state.filter(card => card.id != action.payload.id);
+    case ADD_CARD: {
+      const filteredCards = state.filter(card => card.columnId == action.payload.columnId);
+      const lastCard = filteredCards[filteredCards.length - 1];
+      const newIndex = lastCard ? lastCard.index + 1 : 0;
+      const newCard = {...action.payload,
+        index: newIndex,
+      };
+      return [...state, newCard];
+    }
+      
+
     case MOVE_CARD: {	
       const {id, src, dest} = action.payload;
       const targetCard = state.filter(card => card.id == id)[0];

@@ -34,7 +34,7 @@ render() {
       <Search />
       <div className={styles.columns}>
         {columns.map(columnData => (
-          <Column key={columnData.id} {...columnData} />
+          <Column key={columnData.id} {...columnData}  />
         ))}
       </div>
       <div className={styles.creator}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Column.scss';
 import PropTypes from 'prop-types';
-import Card from '../Card/Card';
+import Card from '../Card/CardContainer';
 import Creator from '../Creator/Creator';
 import Icon from '../Icon/Icon';
 import {settings} from '../../data/dataStore';
@@ -14,6 +14,7 @@ static propTypes = {
   cards: PropTypes.array,
   icon: PropTypes.string,
   id: PropTypes.string,
+  removeColumn: PropTypes.func,
 }
 
 static defaultProps = {
@@ -21,9 +22,10 @@ static defaultProps = {
 }
 
 render() {
-  const {title, icon, cards, addCard, id} = this.props;
+  const {title, icon, cards, addCard, id, removeColumn} = this.props;
   return (
     <section className={styles.component}>
+      <span className={styles.close} onClick={() => removeColumn(id)}><Icon name="times" /></span>
       <h3 className={styles.title}><span className={styles.icon}><Icon name={icon} /> </span>{title}</h3>
       <div className={styles.creator}>
         <Creator text={settings.cardCreatorText} variant='danger' action={addCard}/>
@@ -37,7 +39,7 @@ render() {
           >
             {cards.map(cardData => (
               <Card key={cardData.id} {...cardData} />
-            )).sort((a, b) => (a.index  > b.index) ? 1 : -1)}
+            ))}
 
             {provided.placeholder}
           </div>
