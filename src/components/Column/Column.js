@@ -43,6 +43,7 @@ render() {
 
             {provided.placeholder}
           </div>
+        
         )}
       </Droppable>
     </section>
