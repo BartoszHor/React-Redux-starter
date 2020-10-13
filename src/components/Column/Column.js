@@ -15,6 +15,7 @@ static propTypes = {
   icon: PropTypes.string,
   id: PropTypes.string,
   removeColumn: PropTypes.func,
+  removeCards: PropTypes.func,
 }
 
 static defaultProps = {
@@ -22,10 +23,10 @@ static defaultProps = {
 }
 
 render() {
-  const {title, icon, cards, addCard, id, removeColumn} = this.props;
+  const {title, icon, cards, addCard, id, removeColumn, removeCards} = this.props;
   return (
     <section className={styles.component}>
-      <span className={styles.close} onClick={() => removeColumn(id)}><Icon name="times" /></span>
+      <span onClick={() => removeCards(id)} ><span className={styles.close} onClick={() => removeColumn(id)}><Icon name="times" /></span></span>
       <h3 className={styles.title}><span className={styles.icon}><Icon name={icon} /> </span>{title}</h3>
       <div className={styles.creator}>
         <Creator text={settings.cardCreatorText} variant='danger' action={addCard}/>
@@ -43,7 +44,6 @@ render() {
 
             {provided.placeholder}
           </div>
-        
         )}
       </Droppable>
     </section>

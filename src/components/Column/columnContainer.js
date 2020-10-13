@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Column from './Column';
-import {selectCardsForColumns, createActionAddCard } from '../../redux/cardsRedux';
+import {selectCardsForColumns, createActionAddCard, createActionRemoveCards } from '../../redux/cardsRedux';
 import { createActionRemoveColumn } from '../../redux/columnsRedux';
 
 //export const selectCardsForColumn = ({cards}, columnId) => cards.filter(card => card.columnId == columnId);
@@ -16,6 +16,9 @@ const mapDispatchToProps = (dispatch, props) => ({
   })),
   removeColumn: (id) => dispatch(createActionRemoveColumn({
     id: id,
+  })),
+  removeCards: () => dispatch(createActionRemoveCards({
+    id: props.id,
   })),
 });
 
