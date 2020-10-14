@@ -7,6 +7,7 @@ import {settings} from '../../data/dataStore';
 import ReactHtmlParser from 'react-html-parser';
 import Creator from '../Creator/Creator';
 import Search from '../Search/SearchContainer';
+import Container from '../Container/Container';
 
 class List extends React.Component {
 
@@ -26,20 +27,23 @@ static defaultProps = {
 render() {
   const {title, link, description, columns, addColumn} = this.props;
   return (
+    
     <section className={styles.component}>
-      <Hero titleText={title} link={link} />
-      <div className={styles.description}>
-        {ReactHtmlParser(description)}					
-      </div>
-      <Search />
-      <div className={styles.columns}>
-        {columns.map(columnData => (
-          <Column key={columnData.id} {...columnData}  />
-        ))}
-      </div>
-      <div className={styles.creator}>
-        <Creator variant="danger" text={settings.columnCreatorText} action={addColumn}/>
-      </div>
+      <Container>
+        <Hero titleText={title} link={link} />
+        <div className={styles.description}>
+          {ReactHtmlParser(description)}					
+        </div>
+        <Search />
+        <div className={styles.columns}>
+          {columns.map(columnData => (
+            <Column key={columnData.id} {...columnData}  />
+          ))}
+        </div>
+        <div className={styles.creator}>
+          <Creator variant="danger" text={settings.columnCreatorText} action={addColumn}/>
+        </div>
+      </Container>
     </section>
   );
 }
