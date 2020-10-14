@@ -10,6 +10,23 @@ export const settings = {
     buttonCancel: 'Cancel',
     defaultText: 'Add new item',
   },
+  info: {
+    title: 'React, React Redux, React Router in action.',
+    link: 'https://images.pexels.com/photos/356079/pexels-photo-356079.jpeg?cs=srgb&dl=pexels-pixabay-356079.jpg&fm=jpg',
+    list: {
+      item_1: 'User can switch pages thanks to React Router',
+      item_2: 'User can add columns thanks to React Redux',
+      item_3: 'User can add lists thanks to React Redux',
+      item_4: 'User can add cards thanks to React Redux',
+      item_5: 'User is able to delate columns and cards thanks to React Redux',
+      item_6: 'User can Drag n Drop cards in different columns and update state, thanks to React Redux',
+      item_7: 'User can search cards and display matching ones in each column',
+    },
+  },
+  faq: {
+    link: 'https://images.pexels.com/photos/221164/pexels-photo-221164.jpeg?cs=srgb&dl=pexels-pixabay-221164.jpg&fm=jpg',
+    title: 'FAQ',
+  },
   defaultListDescription: '<p>I can do all the things!!!</p>',
   defaultColumnIcon: 'list-alt',
 };
