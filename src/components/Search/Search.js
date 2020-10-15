@@ -45,22 +45,25 @@ class Search extends React.Component {
     const {value} = this.state;
     const icon = settings.search.icon;
     return (
-      <Container>
-        <div className={styles.component}>
-          <input
-            type='text'
-            placeholder={text}
-            value={value}
-            onChange={event => this.handleChange(event)}
-          />
-          <div className={styles.buttons}>
-            <Button onClick={() => this.handleOK()}><Icon name={icon} /></Button>
+      <div>
+        <Container>
+          <div className={styles.component}>
+            <input
+              type='text'
+              placeholder={text}
+              value={value}
+              onChange={event => this.handleChange(event)}
+            />
+            <div className={styles.buttons}>
+              <Button onClick={() => this.handleOK()}><Icon name={icon} /></Button>
+            </div>
+            <div>
+              { countVisible == countAll ? '' : `${countVisible} / ${countAll}` }
+            </div>
           </div>
-          <div>
-            { countVisible == countAll ? '' : `${countVisible} / ${countAll}` }
-          </div>
-        </div>
-      </Container>
+        </Container>
+      </div>
+      
     );
   }
 }

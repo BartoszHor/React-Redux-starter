@@ -1,6 +1,8 @@
 export const settings = {
   columnCreatorText: 'Add new column',
   cardCreatorText: 'Add new card',
+  defaultListDescription: '<p>I can do all the things!!!</p>',
+  defaultColumnIcon: 'list-alt',
   search: {
     defaultText: 'Search Cards',
     icon: 'search',
@@ -26,9 +28,11 @@ export const settings = {
   faq: {
     link: 'https://images.pexels.com/photos/221164/pexels-photo-221164.jpeg?cs=srgb&dl=pexels-pixabay-221164.jpg&fm=jpg',
     title: 'FAQ',
+    content: 'test content',
   },
-  defaultListDescription: '<p>I can do all the things!!!</p>',
-  defaultColumnIcon: 'list-alt',
+  header: {
+    logo: 'american-sign-language-interpreting',
+  },
 };
 
 export const pageContents = {

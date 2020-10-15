@@ -4,6 +4,7 @@ import List from '../List/listContainer';
 import Creator from '../Creator/Creator';
 import PropTypes from 'prop-types';
 import {DragDropContext} from 'react-beautiful-dnd';
+import Container from '../Container/Container';
 
 class Home extends React.Component {
 
@@ -50,7 +51,9 @@ render() {
           <List key={listData.id} {...listData} />
         ))}
       </DragDropContext>
+      <Container>
    		<Creator text={'Name Your new list'} variant='danger' action={addList}/>
+      </Container>
     </main>
   );
 }

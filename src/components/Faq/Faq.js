@@ -10,7 +10,7 @@ const Faq = () => (
       <Hero link={settings.faq.link} />
       <div>
         <h1 className={styles.title}> {settings.faq.title}</h1>
-        <p> test content </p> 
+        <p> {settings.faq.content} </p> 
       </div>
     </Container>
   </div>
