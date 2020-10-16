@@ -7,7 +7,7 @@ import styles from './Info.scss';
 const Info = () => (
   <div>
     <Container>
-      <Hero link={settings.info.link} />
+      <Hero link={settings.info.link} className={styles.test}/>
       <div>
         <h1 className={styles.descriptionHeader}> {settings.info.title}</h1>
         <ul className={styles.list}>
