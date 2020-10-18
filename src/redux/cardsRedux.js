@@ -1,7 +1,11 @@
 import shortid from 'shortid';
 
 //selectors
-export const selectCardsForColumns = ({cards, searchString}, columnId) => cards.filter(card => card.columnId == columnId && new RegExp(searchString, 'i').test(card.title)).sort((a, b) => (a.index > b.index) ? 1 : -1);
+export const selectCardsForColumns = ({cards}, columnId) => cards.filter(card => card.columnId == columnId).sort((a, b) => (a.index > b.index) ? 1 : -1);
+
+export const selectCardsForSearchResult = ({cards}, searchString) => cards.filter(card => new RegExp(searchString, 'i').test(card.title));
+
+
 //action name creator
 const reducerName = 'cards';
 const createActionName = name => `app/${reducerName}/${name}`;
@@ -54,7 +58,6 @@ export default function CardReducer (state = [], action = {}) {
       };
       return [...state, newCard];
     }
-      
 
     case MOVE_CARD: {	
       const {id, src, dest} = action.payload;

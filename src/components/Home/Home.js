@@ -3,7 +3,6 @@ import styles from './Home.scss';
 import ListLink from '../ListLink/ListLink';
 import Creator from '../Creator/Creator';
 import PropTypes from 'prop-types';
-import {DragDropContext} from 'react-beautiful-dnd';
 import Container from '../Container/Container';
 
 class Home extends React.Component {
@@ -13,44 +12,17 @@ static propTypes = {
   subtitle: PropTypes.node,
   lists: PropTypes.array,
   addList: PropTypes.func,
-  moveCard: PropTypes.func,
 }
 
 render() {
-  const {lists, title, addList, moveCard} = this.props;
-  const moveCardHandler = (result) => {
-    if(
-      result.destination
-    &&
-    (
-      result.destination.index != result.source.index
-      ||
-      result.destination.droppableId != result.source.droppableId
-    )
-    ){
-
-      moveCard({
-        id: result.draggableId,
-        dest: {
-          index: result.destination.index,
-          columnId: result.destination.droppableId,
-        },
-        src: {
-          index: result.source.index,
-          columnId: result.source.droppableId,
-        },
-      });
-    }
-  };
+  const {lists, title, addList} = this.props;
 
   return (
     <main className={styles.component}>
       <h1 className={styles.title}>{title}</h1>
-      <DragDropContext onDragEnd={moveCardHandler}>
-        {lists.map(listData => (
-          <ListLink key={listData.id} {...listData} />
-        ))}
-      </DragDropContext>
+      {lists.map(listData => (
+        <ListLink key={listData.id} {...listData} />
+      ))}
       <Container>
    		<Creator text={'Name Your new list'} variant='danger' action={addList}/>
       </Container>

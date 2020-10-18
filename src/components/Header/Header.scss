@@ -10,6 +10,7 @@
     font-weight: 700;
     margin-right: $base-size;
     transition: $transition;
+    font-size: ($base-size * 1.2)
     &:hover {
       color: $color-success;
     }
@@ -17,8 +18,13 @@
       color: $color-warning;
     }
   }
-
 }
+
+.nav {
+  position: relative;
+  left: 100px;
+}
+
 
 .wrapper {
   display: flex;
