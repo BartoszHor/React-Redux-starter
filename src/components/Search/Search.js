@@ -15,7 +15,7 @@ class Search extends React.Component {
     countVisible: PropTypes.number,
     countAll: PropTypes.number,
     history: PropTypes.array,
-    'history.push': PropTypes.func,
+    push: PropTypes.func,
 
   }
 

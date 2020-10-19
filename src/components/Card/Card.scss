@@ -17,6 +17,20 @@
 	cursor: pointer;
 }
 
-span {
+.simpleComponent {
+  position: relative;
+  background: $color-light;
+  color: black;
+  border: 1px solid lighten($color-dark, 60%);
+  padding: $base-size;
+  margin: 0 0 $base-size 0;
+  width: 200px;
+  border-radius: $radius;
+  text-align: center;
+}
 
+.container {
+  margin: 30px;
+  display: flex;
+  justify-content: center;
 }

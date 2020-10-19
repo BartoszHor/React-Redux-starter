@@ -14,7 +14,7 @@ render() {
   return (
     <section>
       {cards.map(cardData => (
-        <Card key={cardData.id} {...cardData} />
+        <Card key={cardData.id} {...cardData} draggable={false} />
       ))}
     </section>
 
