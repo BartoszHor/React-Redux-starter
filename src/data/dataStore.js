@@ -3,8 +3,13 @@ export const settings = {
   cardCreatorText: 'Add new card',
   defaultListDescription: '<p>I can do all the things!!!</p>',
   defaultColumnIcon: 'list-alt',
+  searchResult: {
+    link: 'https://images.pexels.com/photos/3785927/pexels-photo-3785927.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    text: 'All Your staff',
+    description: 'Click when it is done',
+  },
   search: {
-    defaultText: 'Search Cards',
+    defaultText: 'Filter all tasks',
     icon: 'search',
   },
   creator: {

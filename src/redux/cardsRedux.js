@@ -47,8 +47,9 @@ export default function CardReducer (state = [], action = {}) {
   switch(action.type) {
     case REMOVE_CARDS:
       return state.filter(card => card.columnId != action.payload.id);
-    case REMOVE_CARD:
+    case REMOVE_CARD: {
       return state.filter(card => card.id != action.payload.id);
+    }
     case ADD_CARD: {
       const filteredCards = state.filter(card => card.columnId == action.payload.columnId);
       const lastCard = filteredCards[filteredCards.length - 1];

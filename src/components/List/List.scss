@@ -12,10 +12,12 @@
 
 .columns {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
   color:green;
 }
+
+
 
 .creator {
   width: calc(33% - 12px);
@@ -27,7 +29,7 @@
 }
 
 sup {
-  color: green;
+  color: #26de81;
 }
 
 

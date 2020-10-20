@@ -8,7 +8,6 @@ const mapStateToProps = (state, props) => {
   const filteredLists = state.lists.filter(list => list.id == props.match.params.id);
   console.log(props.match);
   const listParams = filteredLists[0] || {};
-
   return {
     ...listParams,
     columns: selectColumnsForList(state, props.match.params.id),

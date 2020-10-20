@@ -3,6 +3,7 @@ import styles from './Card.scss';
 import PropTypes from 'prop-types';
 import {Draggable} from 'react-beautiful-dnd';
 import Icon from '../Icon/Icon';
+import { Col } from 'react-flexbox-grid';
 
 class Card extends React.Component {
 
@@ -24,7 +25,6 @@ render() {
     return (
       <Draggable draggableId={id} index={index}>
         {(provided) => (
-      
           <article
             className={styles.component}
             {...provided.draggableProps}
@@ -36,15 +36,16 @@ render() {
           </article>
         )}
       </Draggable>
-
     );
   } else {
     return (
-      <div className={styles.container}>
-        <article className={styles.simpleComponent}>
-          {title}
-        </article>
-      </div>
+      <Col sm={12} md={5} className={styles.col} onClick={() => removeCard(id)}>
+        <div className={styles.container}>
+          <article className={styles.simpleCard}>
+            <p className={styles.title}>{title}</p>
+          </article>
+        </div>
+      </Col>
     );
   }
   

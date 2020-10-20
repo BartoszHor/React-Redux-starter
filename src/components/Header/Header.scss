@@ -10,12 +10,13 @@
     font-weight: 700;
     margin-right: $base-size;
     transition: $transition;
-    font-size: ($base-size * 1.2)
+    font-size: ($base-size * 1.5);
     &:hover {
       color: $color-success;
     }
     &:global(.active) {
       color: $color-warning;
+
     }
   }
 }
@@ -23,6 +24,7 @@
 .nav {
   position: relative;
   left: 100px;
+
 }
 
 
@@ -33,5 +35,9 @@
 }
 
 .logo {
+  font-size: 24px;
+}
+
+i {
   font-size: 24px;
 }

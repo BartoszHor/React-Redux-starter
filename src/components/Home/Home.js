@@ -4,6 +4,7 @@ import ListLink from '../ListLink/ListLink';
 import Creator from '../Creator/Creator';
 import PropTypes from 'prop-types';
 import Container from '../Container/Container';
+import { Grid, Row} from 'react-flexbox-grid';
 
 class Home extends React.Component {
 
@@ -15,17 +16,21 @@ static propTypes = {
 }
 
 render() {
-  const {lists, title, addList} = this.props;
+  const {lists, addList} = this.props;
 
   return (
     <main className={styles.component}>
-      <h1 className={styles.title}>{title}</h1>
-      {lists.map(listData => (
-        <ListLink key={listData.id} {...listData} />
-      ))}
-      <Container>
-   		<Creator text={'Name Your new list'} variant='danger' action={addList}/>
-      </Container>
+      <Grid>
+        <h1 className={styles.title}>Pick Your list or add new one</h1>
+        <Row>
+          {lists.map(listData => (
+            <ListLink key={listData.id} {...listData} />
+          ))}
+        </Row>
+        <Container>
+   		<Creator text={'Add link to Your new List'} variant='danger' action={addList}/>
+        </Container>
+      </Grid>
     </main>
   );
 }

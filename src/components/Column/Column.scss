@@ -1,14 +1,17 @@
 @import '../../styles/settings.scss';
 
 .component {
-  flex-shrink: 0;
-  width: calc(33% - 12px);
+  flex-shrink: 1;
+  width: calc(30% - 12px);
   background: $color-light;
   margin: 0 0 $base-size 0;
   padding: ($base-size * 1.5);
+  background-image: url("https://miro.medium.com/max/5120/1*5XH40dQSsBVFtvx3MO5VwQ.png") ;
+  background-repeat: initial;
   border-radius: $radius;
   box-shadow: 0 ($base-size / 4) 0 rgba(0,0,0,0.3);
   color: $color-dark;
+  min-width: 300px;
 
   &:last-child {
     margin: 0 0 $base-size 0; 
@@ -31,11 +34,15 @@
 .cards {
   padding: ($base-size / 2) 0;
 }
+
 .close {
   display: inline-block;
   margin-left: auto;
-  font-size: 120%;
   cursor: pointer;
+
+  i {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 767px) {
