@@ -1,13 +1,12 @@
 import React from 'react';
 import Home from '../Home/HomeContainer';
 import Info from '../Info/Info';
-
 import List from '../List/listContainer';
 import {AnimatedSwitch} from 'react-router-transition';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import MainLayout from '../MainLayout/MainLayout';
 import styles from './App.scss';
-import SearchResultContainer from '../SearchResult/SearchresultContainer';
+import SearchResultContainer from '../SearchResult/SearchResultContainer';
 
 const App = () => (
   <BrowserRouter>
