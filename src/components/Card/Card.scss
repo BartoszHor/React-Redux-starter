@@ -12,10 +12,9 @@
 
 .container {
   position: relative;
-  background-image: url("https://www.vectorgraphit.com/wp-content/uploads/2014/04/trianglify-background-41.jpg");
-  border: 1px solid lighten($color-dark, 60%);
   border-radius: $radius;
   display: flex;
+  cursor: pointer;
 }
 
 .close {
